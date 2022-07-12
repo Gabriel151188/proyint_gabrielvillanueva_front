@@ -13,7 +13,7 @@ export class UsuarioService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
 
     return this.http.post(
-      '/api/usuario/login',
+      'https://integrador-gabrielvillanueva.herokuapp.com/usuario/login',
       body,
       {
         headers: { 'Content-Type': 'application/json' },

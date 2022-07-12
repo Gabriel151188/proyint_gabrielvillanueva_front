@@ -7,7 +7,7 @@ import { persona } from '../model/persona.model';
   providedIn: 'root'
 })
 export class PersonaService {
-URL = '/api/personas/';
+URL = 'https://integrador-gabrielvillanueva.herokuapp.com/personas/';
 
   constructor(private http: HttpClient) { }
 
