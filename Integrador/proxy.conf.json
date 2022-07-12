@@ -1,0 +1,7 @@
+{
+    "/*": {
+        "target": "https://integrador-gabrielvillanueva.herokuapp.com",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}
