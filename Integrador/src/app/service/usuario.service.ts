@@ -13,7 +13,7 @@ export class UsuarioService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
 
     return this.http.post(
-      '/usuario/login',
+      '/api/usuario/login',
       body,
       {
         headers: { 'Content-Type': 'application/json' },
