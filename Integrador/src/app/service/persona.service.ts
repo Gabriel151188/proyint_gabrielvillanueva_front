@@ -7,7 +7,7 @@ import { persona } from '../model/persona.model';
   providedIn: 'root'
 })
 export class PersonaService {
-URL = 'http://localhost:8080/personas/';
+URL = 'https://integrador-gabrielvillanueva.herokuapp.com/personas/';
 
   constructor(private http: HttpClient) { }
 
@@ -16,8 +16,6 @@ URL = 'http://localhost:8080/personas/';
   }
 
   public editPersona(data: any): Observable<any>{
-    console.log('*******', data)
-    
     let body = JSON.stringify(data);
     let headers = new Headers({ 'Content-Type': 'application/json' });
 

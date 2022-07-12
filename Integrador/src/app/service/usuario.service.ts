@@ -9,13 +9,11 @@ export class UsuarioService {
   constructor(private http: HttpClient) { }
 
   public login(user: any): Observable<any>{
-    console.log('*******', user)
-    
     let body = JSON.stringify(user);
     let headers = new Headers({ 'Content-Type': 'application/json' });
 
     return this.http.post(
-      'http://localhost:8080/usuario/login',
+      'https://integrador-gabrielvillanueva.herokuapp.com/usuario/login',
       body,
       {
         headers: { 'Content-Type': 'application/json' },
