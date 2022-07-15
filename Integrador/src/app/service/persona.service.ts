@@ -19,9 +19,10 @@ URL = 'https://integrador-gabrielvillanueva.herokuapp.com/personas/';
     let body = JSON.stringify(data);
     let headers = new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8',
-      'Access-Control-Allow-Headers': 'Content-Type',
-      'Access-Control-Allow-Methods': 'GET',
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Headers': 'Content-Type, Origin, Accept, X-Auth-Token, Authorization',
+      'Access-Control-Allow-Methods': 'GET, POST',
+      'Access-Control-Allow-Origin': 'https://integrador-gabrielvillanueva.herokuapp.com',
+      'Origin': 'https://integrador-gabrielvillanueva.herokuapp.com'
     });
 
     return this.http.post(
