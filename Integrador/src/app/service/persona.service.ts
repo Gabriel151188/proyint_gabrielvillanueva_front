@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { persona } from '../model/persona.model';
@@ -7,29 +7,33 @@ import { persona } from '../model/persona.model';
   providedIn: 'root'
 })
 export class PersonaService {
-URL = 'https://integrador-gabrielvillanueva.herokuapp.com/personas/';
+  URL = 'https://integrador-gabrielvillanueva.herokuapp.com/personas/';
+  headers = {
+    'Content-Type': 'application/json; charset=utf-8',
+    'Access-Control-Allow-Headers': 'Content-Type, Origin, Accept, X-Auth-Token, Authorization',
+    'Access-Control-Allow-Methods': 'GET, POST',
+    'Access-Control-Allow-Origin': 'https://integrador-gabrielvillanueva.herokuapp.com'
+  };
 
   constructor(private http: HttpClient) { }
 
   public getPersona(): Observable<persona>{
-    return this.http.get<persona>(this.URL + 'traer');
+    return this.http.get<persona>(
+      this.URL + 'traer',
+      {
+        headers: { ...this.headers }
+      },
+    );
   }
 
   public editPersona(data: any): Observable<any>{
     let body = JSON.stringify(data);
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/json; charset=utf-8',
-      'Access-Control-Allow-Headers': 'Content-Type, Origin, Accept, X-Auth-Token, Authorization',
-      'Access-Control-Allow-Methods': 'GET, POST',
-      'Access-Control-Allow-Origin': 'https://integrador-gabrielvillanueva.herokuapp.com',
-      'Origin': 'https://integrador-gabrielvillanueva.herokuapp.com'
-    });
 
     return this.http.post(
       this.URL + 'editar',
       body,
       {
-        headers: { ...headers },
+        headers: { ...this.headers }
       },
     );
   }

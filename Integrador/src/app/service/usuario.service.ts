@@ -6,6 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsuarioService {
+  headers = {
+    'Content-Type': 'application/json; charset=utf-8',
+    'Access-Control-Allow-Headers': 'Content-Type, Origin, Accept, X-Auth-Token, Authorization',
+    'Access-Control-Allow-Methods': 'GET, POST',
+    'Access-Control-Allow-Origin': 'https://integrador-gabrielvillanueva.herokuapp.com'
+  };
+
   constructor(private http: HttpClient) { }
 
   public login(user: any): Observable<any>{
@@ -16,7 +23,7 @@ export class UsuarioService {
       'https://integrador-gabrielvillanueva.herokuapp.com/usuario/login',
       body,
       {
-        headers: { 'Content-Type': 'application/json' },
+        headers: { ...this.headers }
       },
     );
   }
