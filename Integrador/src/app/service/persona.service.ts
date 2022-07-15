@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { persona } from '../model/persona.model';
@@ -17,13 +17,18 @@ URL = 'https://integrador-gabrielvillanueva.herokuapp.com/personas/';
 
   public editPersona(data: any): Observable<any>{
     let body = JSON.stringify(data);
-    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8',
+      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Allow-Methods': 'GET',
+      'Access-Control-Allow-Origin': '*'
+    });
 
     return this.http.post(
       this.URL + 'editar',
       body,
       {
-        headers: { 'Content-Type': 'application/json' },
+        headers: { ...headers },
       },
     );
   }
