@@ -10,7 +10,7 @@ export class UsuarioService {
     'Content-Type': 'application/json; charset=utf-8',
     'Access-Control-Allow-Headers': 'Content-Type, Origin, Accept, X-Auth-Token, Authorization',
     'Access-Control-Allow-Methods': 'GET, POST',
-    'Access-Control-Allow-Origin': 'https://integrador-gabrielvillanueva.herokuapp.com'
+    'Access-Control-Allow-Origin': 'https://backendgvp.onrender.com'
   };
 
   constructor(private http: HttpClient) { }
@@ -20,7 +20,7 @@ export class UsuarioService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
 
     return this.http.post(
-      'https://integrador-gabrielvillanueva.herokuapp.com/usuario/login',
+      'https://backendgvp.onrender.com/usuario/login',
       body,
       {
         headers: { ...this.headers }
